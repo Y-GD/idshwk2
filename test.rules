@@ -1,2 +1,2 @@
-alert tcp $EXTERNAL_NET any -> $HOME_NET 3399(msg:"login or Initial";pcre:"/[login|Initial]/";flowbits:set,is_bot;flowbits:noalert;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET 3399(msg:"login or Initial";pcre:"/login|Initial/";flowbits:set,is_bot;flowbits:noalert;)
 alett tcp $EXTERNAL_NET any -> $HOME_NET 3399(msg:"bot founded";flowbits:isset,is_bot;pcre:"/([0-255]\.){3}[0-255]\:\d+/";sid=1000001;)
